@@ -64,7 +64,8 @@ module.exports.updateUser = (req, res, next) => {
       return res.status(200).send(user);
     })
     .catch((err) => {
-      next(handleValidationError(err));
+      if (err.code === 11000 || err.name === 'MongoServerError') return next(new ConflictError('Пользователь с такой почтой уже существует'));
+      return next(handleValidationError(err));
     });
 };
 

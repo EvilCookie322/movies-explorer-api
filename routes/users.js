@@ -28,7 +28,12 @@ router.post('/signup', celebrate({
 router.use(authorization);
 
 router.get('/users/me', getUser);
-router.patch('/users/me', updateUser);
+router.patch('/users/me', celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().email().required(),
+    name: Joi.string().min(2).max(30).required(),
+  }),
+}), updateUser);
 router.get('/signout', signOut);
 
 module.exports = router;
