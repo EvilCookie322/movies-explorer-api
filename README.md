@@ -9,6 +9,9 @@
 Репозиторий https://github.com/EvilCookie322/movies-explorer-api \
 Backend https://api.alexg.students.nomoreparties.co
 
-## `npm run start`
-Запускает приложение локально. \
+## Запуск проекта
+`npm run start` — запускает сервер
+
+`npm run dev` — запускает сервер с hot-reload
+
 Протестировать можно через Postman, адрес для запросов - http://localhost:4000 .
